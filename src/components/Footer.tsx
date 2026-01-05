@@ -11,13 +11,13 @@ export const Footer: React.FC = () => {
             marginTop: 'auto'
         }}>
             <div className="container">
-                <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2rem', alignItems: 'center' }}>
+                <div className="footer-content" style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '3rem', alignItems: 'center' }}>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                         {/* Logo Image in Footer - White Filter for Dark BG */}
                         <a href="#" style={{ display: 'block', textDecoration: 'none' }}>
                             <img src={logo} alt="NOVA Marketing Lab" style={{
-                                height: '80px',
+                                height: 'clamp(80px, 10vw, 120px)', // Larger responsive logo
                                 width: 'auto',
                                 objectFit: 'contain',
                                 filter: 'brightness(0) invert(1)' // Turns the logo white
@@ -35,6 +35,16 @@ export const Footer: React.FC = () => {
                         &copy; {new Date().getFullYear()} Nova Marketing Lab. Todos los derechos reservados.
                     </div>
                 </div>
+
+                <style>{`
+                    @media (max-width: 768px) {
+                        .footer-content {
+                            flex-direction: column !important;
+                            text-align: center;
+                            gap: 2rem !important;
+                        }
+                    }
+                `}</style>
             </div>
         </footer>
     );
