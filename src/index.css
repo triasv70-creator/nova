@@ -124,5 +124,18 @@ h3 {
 .text-gradient-growth {
   background: linear-gradient(135deg, var(--color-accent-cyan) 0%, var(--color-accent-lime) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
 }

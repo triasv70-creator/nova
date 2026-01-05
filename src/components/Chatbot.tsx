@@ -8,6 +8,12 @@ type Message = {
     options?: { label: string; action: string }[];
 };
 
+type LeadData = {
+    name?: string;
+    contact?: string;
+    service?: string;
+};
+
 const initialMessages: Message[] = [
     {
         id: '1',
@@ -24,7 +30,18 @@ const initialMessages: Message[] = [
 
 export const Chatbot: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [messages, setMessages] = useState<Message[]>(initialMessages);
+    const [messages, setMessages] = useState<Message[]>(() => {
+        const saved = localStorage.getItem('nova_chat_messages');
+        return saved ? JSON.parse(saved) : initialMessages;
+    });
+    const [isTyping, setIsTyping] = useState(false);
+    const [userInput, setUserInput] = useState('');
+    const [leadStep, setLeadStep] = useState<'selection' | 'name' | 'contact' | 'finished'>('selection');
+    const [leadData, setLeadData] = useState<LeadData>(() => {
+        const saved = localStorage.getItem('nova_lead_data');
+        return saved ? JSON.parse(saved) : {};
+    });
+
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
     const scrollToBottom = () => {
@@ -32,77 +49,104 @@ export const Chatbot: React.FC = () => {
     };
 
     useEffect(() => {
+        localStorage.setItem('nova_chat_messages', JSON.stringify(messages));
+    }, [messages]);
+
+    useEffect(() => {
+        localStorage.setItem('nova_lead_data', JSON.stringify(leadData));
+    }, [leadData]);
+
+    useEffect(() => {
         scrollToBottom();
-    }, [messages, isOpen]);
+    }, [messages, isOpen, isTyping]);
+
+    const addBotMessage = (text: string, options?: { label: string; action: string }[]) => {
+        setIsTyping(true);
+        setTimeout(() => {
+            const botMsg: Message = {
+                id: Date.now().toString() + 'b',
+                type: 'bot',
+                text,
+                options
+            };
+            setMessages(prev => [...prev, botMsg]);
+            setIsTyping(false);
+        }, 1200);
+    };
 
     const handleOptionClick = (action: string, label: string) => {
-        // Add user selection
         const userMsg: Message = { id: Date.now().toString(), type: 'user', text: label };
         setMessages(prev => [...prev, userMsg]);
 
-        // Bot response logic
-        setTimeout(() => {
-            let botResponse: Message;
+        if (action.startsWith('service_')) {
+            setLeadData(prev => ({ ...prev, service: label }));
+            setLeadStep('name');
+            addBotMessage(`¡Excelente elección! Me encantaría ayudarte con ${label.toLowerCase()}. Para empezar, ¿cómo te llamas?`);
+        } else if (action === 'whatsapp') {
+            setLeadData(prev => ({ ...prev, service: 'WhatsApp Direct' }));
+            setLeadStep('name');
+            addBotMessage('¡Claro! Te pondré en contacto con un humano. Primero, ¿podrías decirme tu nombre?');
+        } else if (action === 'reset') {
+            setMessages(initialMessages);
+            setLeadStep('selection');
+            setLeadData({});
+            localStorage.removeItem('nova_chat_messages');
+            localStorage.removeItem('nova_lead_data');
+        } else if (action === 'link_portfolio') {
+            window.open('#services', '_self');
+            addBotMessage('Aquí puedes ver algunos de nuestros trabajos. ¿Qué te parece?');
+        }
+    };
 
-            switch (action) {
-                case 'service_content':
-                    botResponse = {
-                        id: Date.now().toString() + 'b',
-                        type: 'bot',
-                        text: 'En nuestro laboratorio creamos contenido animado, fotografía y video estratégico alineado a tu marca. ¿Te gustaría ver ejemplos o cotizar?',
-                        options: [
-                            { label: 'Ver Portafolio (Web)', action: 'link_portfolio' },
-                            { label: 'Cotizar en WhatsApp', action: 'whatsapp' },
-                            { label: 'Volver al menú', action: 'reset' }
-                        ]
-                    };
-                    break;
-                case 'service_ads':
-                    botResponse = {
-                        id: Date.now().toString() + 'b',
-                        type: 'bot',
-                        text: 'Maximizamos tu ROI con campañas en Meta Ads y TikTok. Nos enfocamos en conversión, no solo likes.',
-                        options: [
-                            { label: 'Quiero escalar ventas', action: 'whatsapp' },
-                            { label: 'Volver al menú', action: 'reset' }
-                        ]
-                    };
-                    break;
-                case 'service_web':
-                    botResponse = {
-                        id: Date.now().toString() + 'b',
-                        type: 'bot',
-                        text: 'Desarrollamos sitios web de alto rendimiento y diseño "Antigravity". Velocidad y conversión aseguradas.',
-                        options: [
-                            { label: 'Cotizar mi web', action: 'whatsapp' },
-                            { label: 'Volver al menú', action: 'reset' }
-                        ]
-                    };
-                    break;
-                case 'whatsapp':
-                    window.open('https://wa.me/1234567890', '_blank'); // Replace with real number
-                    botResponse = {
-                        id: Date.now().toString() + 'b',
-                        type: 'bot',
-                        text: '¡Genial! Te estoy redirigiendo a WhatsApp para hablar con un especialista...',
-                        options: [{ label: 'Volver al menú', action: 'reset' }]
-                    };
-                    break;
-                case 'reset':
-                    botResponse = initialMessages[0];
-                    // Determine if we want to clear history or just append. Appending for conversational flow.
-                    botResponse = { ...initialMessages[0], id: Date.now().toString() + 'b' };
-                    break;
-                default:
-                    botResponse = {
-                        id: Date.now().toString() + 'b',
-                        type: 'bot',
-                        text: 'Entendido. ¿Hay algo más en lo que pueda ayudarte?',
-                        options: initialMessages[0].options
-                    };
+    const handleSendText = (e?: React.FormEvent) => {
+        e?.preventDefault();
+        if (!userInput.trim()) return;
+
+        const userMsg: Message = { id: Date.now().toString(), type: 'user', text: userInput };
+        setMessages(prev => [...prev, userMsg]);
+        const currentInput = userInput;
+        setUserInput('');
+
+        if (leadStep === 'name') {
+            setLeadData(prev => ({ ...prev, name: currentInput }));
+            setLeadStep('contact');
+            addBotMessage(`Mucho gusto, ${currentInput}. 👋 ¿A qué email o WhatsApp podemos enviarte la propuesta?`);
+        } else if (leadStep === 'contact') {
+            setLeadData(prev => ({ ...prev, contact: currentInput }));
+            setLeadStep('finished');
+
+            // Meta Pixel Lead Event
+            if ((window as any).fbq) {
+                (window as any).fbq('track', 'Lead', {
+                    content_name: leadData.service,
+                    value: 0,
+                    currency: 'USD'
+                });
             }
-            setMessages(prev => [...prev, botResponse]);
-        }, 600);
+
+            addBotMessage('¡Recibido! 🚀 Un especialista de NOVA Marketing Lab se pondrá en contacto contigo en menos de 24 horas. ¿Te gustaría adelantarte y escribirnos por WhatsApp ahora?', [
+                { label: '📲 Ir a WhatsApp Ahora', action: 'direct_wa' },
+                { label: 'Volver a empezar', action: 'reset' }
+            ]);
+        } else if (action_is_direct_wa(currentInput)) { // Helper for direct WA from text if needed, but we use switch usually
+            // Standard response for non-lead messages
+            addBotMessage('Entendido. ¿Hay algo más en lo que pueda ayudarte?');
+        }
+    };
+
+    const action_is_direct_wa = (_text: string) => false; // Dummy for now
+
+    // Update the handleOptionClick for the final WA redirect
+    const originalHandleOptionClick = handleOptionClick;
+    const enhancedHandleOptionClick = (action: string, label: string) => {
+        if (action === 'direct_wa') {
+            const userMsg: Message = { id: Date.now().toString(), type: 'user', text: label };
+            setMessages(prev => [...prev, userMsg]);
+            window.open('https://wa.me/1234567890', '_blank');
+            addBotMessage('Te estoy redirigiendo...');
+            return;
+        }
+        originalHandleOptionClick(action, label);
     };
 
     return (
@@ -178,7 +222,7 @@ export const Chatbot: React.FC = () => {
                                         {msg.options.map((opt, idx) => (
                                             <button
                                                 key={idx}
-                                                onClick={() => handleOptionClick(opt.action, opt.label)}
+                                                onClick={() => enhancedHandleOptionClick(opt.action, opt.label)}
                                                 className="hover-lift"
                                                 style={{
                                                     padding: '0.5rem 1rem',
@@ -198,8 +242,56 @@ export const Chatbot: React.FC = () => {
                                 )}
                             </div>
                         ))}
+                        {isTyping && (
+                            <div style={{ display: 'flex', gap: '4px', padding: '0.5rem 1rem' }}>
+                                <div className="typing-dot" style={{ width: '6px', height: '6px', background: '#9ca3af', borderRadius: '50%', animation: 'bounce 1s infinite 0.1s' }}></div>
+                                <div className="typing-dot" style={{ width: '6px', height: '6px', background: '#9ca3af', borderRadius: '50%', animation: 'bounce 1s infinite 0.2s' }}></div>
+                                <div className="typing-dot" style={{ width: '6px', height: '6px', background: '#9ca3af', borderRadius: '50%', animation: 'bounce 1s infinite 0.3s' }}></div>
+                            </div>
+                        )}
                         <div ref={messagesEndRef} />
                     </div>
+
+                    {/* Input Area */}
+                    <form onSubmit={handleSendText} style={{
+                        padding: '0.8rem',
+                        borderTop: '1px solid #E5E7EB',
+                        backgroundColor: 'white',
+                        display: 'flex',
+                        gap: '0.5rem'
+                    }}>
+                        <input
+                            type="text"
+                            value={userInput}
+                            onChange={(e) => setUserInput(e.target.value)}
+                            placeholder="Escribe tu mensaje..."
+                            style={{
+                                flex: 1,
+                                border: '1px solid #E5E7EB',
+                                borderRadius: '8px',
+                                padding: '0.5rem 0.8rem',
+                                fontSize: '0.9rem',
+                                outline: 'none'
+                            }}
+                        />
+                        <button
+                            type="submit"
+                            style={{
+                                backgroundColor: 'var(--color-brand-blue)',
+                                color: 'white',
+                                border: 'none',
+                                borderRadius: '8px',
+                                width: '36px',
+                                height: '36px',
+                                cursor: 'pointer',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center'
+                            }}
+                        >
+                            🚀
+                        </button>
+                    </form>
                 </div>
             )}
 
