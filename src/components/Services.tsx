@@ -55,10 +55,12 @@ export const Services: React.FC = () => {
                         <div key={i} className="service-card-interactive">
                             <div className="card-content">
                                 <div className="icon-wrapper">
-                                    <s.icon size={48} strokeWidth={1.5} />
+                                    <s.icon size={32} strokeWidth={1.5} />
                                 </div>
                                 <h3 className="service-title">{s.title}</h3>
-                                <p className="service-description">{s.description}</p>
+                                <div className="description-container">
+                                    <p className="service-description">{s.description}</p>
+                                </div>
                             </div>
                         </div>
                     ))}
@@ -68,76 +70,75 @@ export const Services: React.FC = () => {
             <style>{`
                 .services-grid {
                     display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                    gap: 1.5rem;
+                    grid-template-columns: repeat(5, 1fr);
+                    gap: 1rem;
                 }
 
                 .service-card-interactive {
                     background: white;
                     border: 1px solid #F1F5F9;
-                    border-radius: 24px;
-                    padding: 3rem 2rem;
-                    height: 320px;
+                    border-radius: 20px;
+                    padding: 2.5rem 1rem;
+                    height: 280px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     text-align: center;
-                    position: relative;
-                    overflow: hidden;
-                    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                     cursor: default;
+                    overflow: hidden;
                 }
 
                 .card-content {
                     display: flex;
                     flex-direction: column;
-                    align-items: center;
-                    gap: 1.5rem;
-                    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-                    z-index: 2;
+                    alignItems: center;
+                    gap: 1.25rem;
+                    transition: all 0.4s ease;
+                    width: 100%;
                 }
 
                 .icon-wrapper {
                     color: var(--color-brand-blue);
                     background: #F8FAFC;
-                    width: 90px;
-                    height: 90px;
+                    width: 64px;
+                    height: 64px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    border-radius: 20px;
-                    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                    border-radius: 16px;
+                    margin: 0 auto;
+                    transition: all 0.4s ease;
                 }
 
                 .service-title {
-                    font-size: 1.4rem;
+                    font-size: 1.15rem;
                     font-weight: 700;
                     color: #0F172A;
                     margin: 0;
-                    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                    line-height: 1.3;
+                    transition: all 0.4s ease;
+                }
+
+                .description-container {
+                    max-height: 0;
+                    opacity: 0;
+                    overflow: hidden;
+                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                 }
 
                 .service-description {
-                    font-size: 1rem;
+                    font-size: 0.85rem;
                     color: #64748B;
-                    line-height: 1.6;
-                    margin: 0;
-                    opacity: 0;
-                    transform: translateY(20px);
-                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                    max-width: 240px;
-                    position: absolute;
-                    bottom: 2.5rem;
+                    line-height: 1.5;
+                    margin-top: 1rem;
                 }
 
                 /* Hover States */
                 .service-card-interactive:hover {
                     border-color: rgba(41, 98, 255, 0.2);
-                    box-shadow: 0 25px 50px -12px rgba(41, 98, 255, 0.08);
-                }
-
-                .service-card-interactive:hover .card-content {
-                    transform: translateY(-40px);
+                    box-shadow: 0 20px 40px -10px rgba(41, 98, 255, 0.1);
+                    height: 320px;
                 }
 
                 .service-card-interactive:hover .icon-wrapper {
@@ -146,31 +147,28 @@ export const Services: React.FC = () => {
                     transform: scale(0.9);
                 }
 
-                .service-card-interactive:hover .service-description {
+                .service-card-interactive:hover .description-container {
+                    max-height: 120px;
                     opacity: 1;
-                    transform: translateY(0);
-                    transition-delay: 0.1s;
+                }
+
+                @media (max-width: 1200px) {
+                    .services-grid {
+                        grid-template-columns: repeat(3, 1fr);
+                    }
                 }
 
                 @media (max-width: 768px) {
+                    .services-grid {
+                        grid-template-columns: 1fr;
+                    }
                     .service-card-interactive {
-                        height: auto;
-                        padding: 2.5rem 1.5rem;
+                        height: auto !important;
+                        padding: 2rem;
                     }
-                    .service-card-interactive:hover .card-content {
-                        transform: none;
-                    }
-                    .service-description {
-                        position: relative;
-                        bottom: auto;
+                    .description-container {
+                        max-height: none;
                         opacity: 1;
-                        transform: none;
-                        margin-top: 1rem;
-                        max-width: 100%;
-                    }
-                    .icon-wrapper {
-                        width: 70px;
-                        height: 70px;
                     }
                 }
             `}</style>
