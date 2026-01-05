@@ -14,13 +14,19 @@ export const Footer: React.FC = () => {
                 <div className="footer-content" style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '3rem', alignItems: 'center' }}>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                        {/* Logo Image in Footer - White Filter for Dark BG */}
-                        <a href="#" style={{ display: 'block', textDecoration: 'none' }}>
+                        {/* Logo in a white card to handle opaque backgrounds elegantly */}
+                        <a href="#" style={{
+                            display: 'inline-block',
+                            textDecoration: 'none',
+                            backgroundColor: 'white',
+                            padding: '1rem',
+                            borderRadius: '8px',
+                            boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+                        }}>
                             <img src={logo} alt="NOVA Marketing Lab" style={{
-                                height: 'clamp(80px, 10vw, 120px)', // Larger responsive logo
+                                height: '60px', // Adjusted for container padding
                                 width: 'auto',
-                                objectFit: 'contain',
-                                filter: 'brightness(0) invert(1)' // Turns the logo white
+                                objectFit: 'contain'
                             }} />
                         </a>
                     </div>
