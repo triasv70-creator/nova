@@ -131,7 +131,7 @@ export const Contact: React.FC = () => {
                     </form>
                 )}
 
-                <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '2rem' }}>
+                <div className="contact-links" style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '2rem' }}>
                     <span style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
                         📧 contacto@novamarketinglab.com
                     </span>
@@ -139,6 +139,16 @@ export const Contact: React.FC = () => {
                         📱 WhatsApp Directo
                     </span>
                 </div>
+
+                <style>{`
+                    @media (max-width: 768px) {
+                        .contact-links {
+                            flex-direction: column !important;
+                            gap: 1rem !important;
+                            align-items: center;
+                        }
+                    }
+                `}</style>
             </div>
         </section>
     );

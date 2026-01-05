@@ -30,6 +30,12 @@
   --spacing-section: 6rem;
 }
 
+@media (max-width: 768px) {
+  :root {
+    --spacing-section: 4rem;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -137,5 +143,16 @@ h3 {
 
   50% {
     transform: translateY(-4px);
+  }
+}
+
+/* Responsive Overrides */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  h2 {
+    font-size: 2rem !important;
   }
 }

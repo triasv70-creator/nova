@@ -4,7 +4,7 @@ import React from 'react';
 export const AboutUs: React.FC = () => {
     return (
         <section id="about" style={{ padding: 'var(--spacing-section) 5%', backgroundColor: 'var(--bg-secondary)' }}>
-            <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
+            <div className="container about-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
                 <div className="animate-up">
                     <h5 className="font-technical text-brand-blue" style={{ marginBottom: '1rem', letterSpacing: '2px' }}>[ NOSOTROS ]</h5>
                     <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem', lineHeight: '1.2' }}>
@@ -31,7 +31,6 @@ export const AboutUs: React.FC = () => {
                 <div className="animate-up delay-200" style={{ position: 'relative' }}>
                     <div className="glass-panel" style={{ padding: '0.5rem', borderRadius: '12px', overflow: 'hidden' }}>
                         <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: '8px', overflow: 'hidden', backgroundColor: '#000' }}>
-                            {/* Static Placeholder Video or Embed */}
                             <iframe
                                 style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
                                 src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&mute=1&controls=0&loop=1"
@@ -41,7 +40,6 @@ export const AboutUs: React.FC = () => {
                             ></iframe>
                         </div>
                     </div>
-                    {/* Decorative element */}
                     <div style={{
                         position: 'absolute',
                         top: '-20px',
@@ -55,6 +53,15 @@ export const AboutUs: React.FC = () => {
                     }}></div>
                 </div>
             </div>
+
+            <style>{`
+                    @media (max-width: 768px) {
+                        .about-grid {
+                            grid-template-columns: 1fr !important;
+                            gap: 3rem !important;
+                        }
+                    }
+                `}</style>
         </section>
     );
 };
