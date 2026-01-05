@@ -13,7 +13,7 @@ export const Contact: React.FC = () => {
                 </p>
 
                 <form
-                    action="https://formsubmit.co/adrian@novamktlab.com"
+                    action="https://formsubmit.co/contacto@novamktlab.com"
                     method="POST"
                     style={{
                         display: 'flex',
