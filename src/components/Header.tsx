@@ -7,57 +7,54 @@ export const Header: React.FC = () => {
     return (
         <header style={{
             position: 'fixed',
-            top: '1.5rem',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            width: '90%',
-            maxWidth: '1200px',
-            zIndex: 1000,
-            transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
+            top: '0',
+            left: '0',
+            width: '100%',
+            padding: '1.5rem 4%',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+            pointerEvents: 'none', // Allow clicking through the header area
+            zIndex: 1000
         }}>
+            {/* Logo Island */}
             <div style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                padding: '0.75rem 2.5rem',
-                backgroundColor: 'rgba(255, 255, 255, 0.85)',
-                backdropFilter: 'blur(12px)',
-                WebkitBackdropFilter: 'blur(12px)',
-                borderRadius: '100px',
+                pointerEvents: 'auto',
+                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                backdropFilter: 'blur(10px)',
+                WebkitBackdropFilter: 'blur(10px)',
+                padding: '0.75rem 1.5rem',
+                borderRadius: '24px',
                 border: '1px solid rgba(255, 255, 255, 0.3)',
-                boxShadow: '0 20px 40px -10px rgba(0,0,0,0.05)',
-                height: 'auto',
-                minHeight: '70px'
+                boxShadow: '0 10px 30px rgba(0,0,0,0.05)',
+                display: 'flex',
+                alignItems: 'center'
             }}>
-                {/* Brand Identity Block - Image Logo */}
-                <a href="#" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', transition: 'transform 0.3s ease' }} className="hover-lift">
+                <a href="#" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }} className="hover-lift">
                     <img src={logo} alt="NOVA Marketing Lab" style={{
-                        height: 'clamp(50px, 8vw, 70px)',
+                        height: 'clamp(70px, 10vw, 110px)',
                         width: 'auto',
                         objectFit: 'contain'
                     }} />
                 </a>
+            </div>
 
-                {/* Hamburger Button (Mobile Only) */}
-                <button
-                    onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    style={{
-                        display: 'none',
-                        background: 'none',
-                        border: 'none',
-                        fontSize: '1.8rem',
-                        cursor: 'pointer',
-                        color: 'var(--color-text-main)',
-                        padding: '0.5rem'
-                    }}
-                    className="mobile-menu-btn"
-                >
-                    {isMenuOpen ? '✕' : '☰'}
-                </button>
-
-                <nav style={{
-                    transition: 'all 0.3s ease'
-                }} className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
+            {/* Nav Pill Island */}
+            <div style={{
+                pointerEvents: 'auto',
+                backgroundColor: 'rgba(255, 255, 255, 0.85)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                padding: '0.6rem 2rem',
+                borderRadius: '100px',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
+                boxShadow: '0 15px 35px rgba(0,0,0,0.05)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '2rem',
+                height: '65px'
+            }}>
+                <nav className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
                     <ul style={{
                         display: 'flex',
                         gap: '2.5rem',
@@ -107,16 +104,34 @@ export const Header: React.FC = () => {
                         </li>
                     </ul>
                 </nav>
+
+                {/* Hamburger Button (Mobile Only) */}
+                <button
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    style={{
+                        display: 'none',
+                        background: 'none',
+                        border: 'none',
+                        fontSize: '1.8rem',
+                        cursor: 'pointer',
+                        color: 'var(--color-text-main)',
+                        padding: '0.2rem'
+                    }}
+                    className="mobile-menu-btn"
+                >
+                    {isMenuOpen ? '✕' : '☰'}
+                </button>
             </div>
 
             <style>{`
-                @media (max-width: 768px) {
+                @media (max-width: 900px) {
                     header {
-                        top: 1rem !important;
+                        padding: 1rem 4% !important;
                     }
-                    div[style*="borderRadius: 100px"] {
-                        padding: 0.5rem 1.5rem !important;
-                        border-radius: 20px !important;
+                    div[style*="height: 65px"] {
+                        gap: 1rem !important;
+                        padding: 0.5rem 1.2rem !important;
+                        height: 55px !important;
                     }
                     .mobile-menu-btn {
                         display: block !important;
@@ -124,8 +139,8 @@ export const Header: React.FC = () => {
                     .nav-menu {
                         position: absolute;
                         top: 120%;
-                        left: 0;
-                        width: 100%;
+                        right: 0;
+                        width: 200px;
                         background: white;
                         border-radius: 20px;
                         padding: 1.5rem;
@@ -138,7 +153,7 @@ export const Header: React.FC = () => {
                     }
                     .nav-menu ul {
                         flex-direction: column;
-                        gap: 1.5rem !important;
+                        gap: 1.25rem !important;
                     }
                     .nav-menu li {
                         width: 100%;
