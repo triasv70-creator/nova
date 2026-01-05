@@ -1,97 +1,179 @@
 
 import React from 'react';
+import { MonitorPlay, Target, Workflow, Users2, Globe } from 'lucide-react';
 
 const services = [
     {
-        emoji: '🎨',
+        icon: <MonitorPlay strokeWidth={1.5} />,
         title: 'Contenido Digital',
-        features: ['Animación para redes', 'Fotografía y Video', 'Producción alineada a marca']
+        description: 'Creamos activos visuales de alto impacto diseñados para capturar la atención y proyectar la esencia única de tu marca.'
     },
     {
-        emoji: '📲',
+        icon: <Target strokeWidth={1.5} />,
         title: 'Publicidad Digital',
-        features: ['Meta Ads & TikTok Business', 'Optimización de Campañas', 'Foco en Tráfico y Conversión']
+        description: 'Estrategias de pauta basadas en datos para maximizar tu retorno de inversión con optimización científica constante.'
     },
     {
-        emoji: '🔁',
+        icon: <Workflow strokeWidth={1.5} />,
         title: 'Leads y Gestión',
-        features: ['Generación de Leads', 'Integración CRM (HubSpot)', 'Automatización de Ventas']
+        description: 'Sistemas automatizados para capturar prospectos calificados y sincronizarlos con tu CRM para orquestar tus ventas.'
     },
     {
-        emoji: '🗣',
+        icon: <Users2 strokeWidth={1.5} />,
         title: 'Community Management',
-        features: ['Redacción Estratégica', 'Planificación de Contenido', 'Reportes de Desempeño']
+        description: 'Construimos comunidades digitales activas a través de narrativa estratégica que genera lealtad y conversión.'
     },
     {
-        emoji: '🌐',
+        icon: <Globe strokeWidth={1.5} />,
         title: 'Desarrollo Web',
-        features: ['Diseño UX/UI', 'Sitios de Alta Conversión', 'Coherencia Visual']
+        description: 'Experiencias digitales de alta conversión que fusionan diseño de vanguardia con un rendimiento técnico impecable.'
     }
 ];
 
 export const Services: React.FC = () => {
     return (
-        <section id="services" style={{ padding: 'var(--spacing-section) 0', position: 'relative', overflow: 'hidden' }}>
-            {/* Abstract Background Element (Tech/Lab Feel) */}
-            <div style={{
-                position: 'absolute',
-                top: '10%',
-                right: '-5%',
-                width: '400px',
-                height: '400px',
-                background: 'radial-gradient(circle, rgba(0, 229, 255, 0.08) 0%, transparent 70%)',
-                zIndex: -1
-            }}></div>
-
-            <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-                <div className="animate-up" style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                    <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>
-                        ¿Qué hacemos?
+        <section id="services" style={{ padding: 'var(--spacing-section) 0', backgroundColor: '#FDFDFD' }}>
+            <div className="container">
+                <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
+                    <div style={{
+                        color: 'var(--color-brand-blue)',
+                        fontWeight: 700,
+                        fontSize: '0.9rem',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.2em',
+                        marginBottom: '1rem'
+                    }}>
+                        Nuestras Capacidades
+                    </div>
+                    <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#0F172A', fontWeight: 800 }}>
+                        Ciencia aplicada al <span className="text-brand-blue">Marketing</span>
                     </h2>
-                    <p style={{ color: 'var(--color-text-muted)', maxWidth: '600px', margin: '0 auto' }}>
-                        Trabajamos como un laboratorio creativo y estratégico que transforma ideas en acciones digitales efectivas.
-                    </p>
                 </div>
 
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-                    gap: '2rem'
-                }}>
+                <div className="services-grid">
                     {services.map((s, i) => (
-                        <div key={i} className="glass-panel hover-lift animate-up" style={{
-                            padding: '2.5rem',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            gap: '1rem',
-                            animationDelay: `${i * 0.1 + 0.2}s` // Staggered animation
-                        }}>
-                            <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>{s.emoji}</div>
-                            <h3 style={{
-                                color: 'var(--color-brand-blue)',
-                                fontSize: '1.5rem',
-                                letterSpacing: '-0.02em'
-                            }}>
-                                {s.title}
-                            </h3>
-                            <ul style={{ listStyle: 'none', padding: 0, marginTop: '0.5rem' }}>
-                                {s.features.map((f, j) => (
-                                    <li key={j} style={{
-                                        marginBottom: '0.5rem',
-                                        color: 'var(--color-text-muted)',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '0.5rem',
-                                        fontSize: '0.95rem'
-                                    }}>
-                                        <span style={{ color: 'var(--color-accent-lime)', fontWeight: 'bold' }}>•</span> {f}
-                                    </li>
-                                ))}
-                            </ul>
+                        <div key={i} className="service-card-interactive">
+                            <div className="card-content">
+                                <div className="icon-wrapper">
+                                    {React.cloneElement(s.icon as React.ReactElement, { size: 48 })}
+                                </div>
+                                <h3 className="service-title">{s.title}</h3>
+                                <p className="service-description">{s.description}</p>
+                            </div>
                         </div>
                     ))}
                 </div>
             </div>
+
+            <style>{`
+                .services-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                    gap: 1.5rem;
+                }
+
+                .service-card-interactive {
+                    background: white;
+                    border: 1px solid #F1F5F9;
+                    border-radius: 24px;
+                    padding: 3rem 2rem;
+                    height: 320px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    position: relative;
+                    overflow: hidden;
+                    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                    cursor: default;
+                }
+
+                .card-content {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 1.5rem;
+                    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                    z-index: 2;
+                }
+
+                .icon-wrapper {
+                    color: var(--color-brand-blue);
+                    background: #F8FAFC;
+                    width: 90px;
+                    height: 90px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 20px;
+                    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+
+                .service-title {
+                    font-size: 1.4rem;
+                    font-weight: 700;
+                    color: #0F172A;
+                    margin: 0;
+                    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+
+                .service-description {
+                    font-size: 1rem;
+                    color: #64748B;
+                    line-height: 1.6;
+                    margin: 0;
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                    max-width: 240px;
+                    position: absolute;
+                    bottom: 2.5rem;
+                }
+
+                /* Hover States */
+                .service-card-interactive:hover {
+                    border-color: rgba(41, 98, 255, 0.2);
+                    box-shadow: 0 25px 50px -12px rgba(41, 98, 255, 0.08);
+                }
+
+                .service-card-interactive:hover .card-content {
+                    transform: translateY(-40px);
+                }
+
+                .service-card-interactive:hover .icon-wrapper {
+                    background: var(--color-brand-blue);
+                    color: white;
+                    transform: scale(0.9);
+                }
+
+                .service-card-interactive:hover .service-description {
+                    opacity: 1;
+                    transform: translateY(0);
+                    transition-delay: 0.1s;
+                }
+
+                @media (max-width: 768px) {
+                    .service-card-interactive {
+                        height: auto;
+                        padding: 2.5rem 1.5rem;
+                    }
+                    .service-card-interactive:hover .card-content {
+                        transform: none;
+                    }
+                    .service-description {
+                        position: relative;
+                        bottom: auto;
+                        opacity: 1;
+                        transform: none;
+                        margin-top: 1rem;
+                        max-width: 100%;
+                    }
+                    .icon-wrapper {
+                        width: 70px;
+                        height: 70px;
+                    }
+                }
+            `}</style>
         </section>
     );
 };
