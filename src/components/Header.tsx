@@ -23,7 +23,7 @@ export const Header: React.FC = () => {
             {/* Brand Identity Block - Image Logo */}
             <a href="#" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
                 <img src={logo} alt="NOVA Marketing Lab" style={{
-                    height: 'clamp(50px, 8vw, 120px)',
+                    height: 'clamp(80px, 12vw, 150px)',
                     width: 'auto',
                     objectFit: 'contain'
                 }} />
