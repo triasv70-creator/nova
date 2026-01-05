@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Download, CheckCircle2, Sparkles, Zap, BarChart3 } from 'lucide-react';
+import mockupImg from '../assets/blueprint-mockup.png';
 
 export const BlueprintSection: React.FC = () => {
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -38,14 +39,14 @@ export const BlueprintSection: React.FC = () => {
 
     const miniFeatures = [
         { icon: <Sparkles size={16} />, text: "Oferta Irresistible" },
-        { icon: <Zap size={16} />, text: "Embudo Optimizado" },
-        { icon: <BarChart3 size={16} />, text: "Métricas Reales" }
+        { icon: <Zap size={16} />, text: "Embudo Rentable" },
+        { icon: <BarChart3 size={16} />, text: "Métricas Clave" }
     ];
 
     return (
         <section style={{
-            padding: '4rem 0',
-            background: 'white',
+            padding: '5rem 0',
+            background: 'linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)',
             color: 'var(--color-text-main)',
             borderTop: '1px solid #F1F5F9',
             borderBottom: '1px solid #F1F5F9'
@@ -58,131 +59,161 @@ export const BlueprintSection: React.FC = () => {
                     gap: '2.5rem',
                     textAlign: 'center'
                 }}>
-                    {/* Simplified Header */}
-                    <div>
+                    {/* Header */}
+                    <div style={{ maxWidth: '800px' }}>
                         <h2 style={{
-                            fontSize: 'clamp(1.8rem, 4vw, 2.8rem)',
+                            fontSize: 'clamp(2rem, 5vw, 3.2rem)',
                             color: '#0F172A',
                             fontWeight: 800,
-                            marginBottom: '0.75rem'
+                            marginBottom: '1rem',
+                            lineHeight: '1.1'
                         }}>
                             Descarga el <span className="text-brand-blue">Blueprint</span> de Escalamiento Nova
                         </h2>
+                        <p style={{ fontSize: '1.1rem', color: '#64748B', marginBottom: '1.5rem' }}>
+                            La metodología científica para dominar tus ventas digitales.
+                        </p>
                         <div style={{
                             display: 'flex',
-                            gap: '1.5rem',
+                            gap: '2rem',
                             justifyContent: 'center',
                             flexWrap: 'wrap',
-                            opacity: 0.6
+                            marginBottom: '1rem'
                         }}>
                             {miniFeatures.map((f, i) => (
-                                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', fontWeight: 600 }}>
-                                    {f.icon} {f.text}
+                                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.9rem', fontWeight: 700, color: '#334155' }}>
+                                    <span style={{ color: 'var(--color-brand-blue)' }}>{f.icon}</span>
+                                    {f.text}
                                 </div>
                             ))}
                         </div>
                     </div>
 
-                    {/* Single-Line Form */}
-                    {status === 'success' ? (
-                        <div className="animate-up" style={{
-                            backgroundColor: '#F0FDF4',
-                            padding: '1rem 2rem',
-                            borderRadius: '100px',
-                            border: '1px solid #BBF7D0',
-                            color: '#166534',
-                            fontWeight: 600,
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.75rem'
-                        }}>
-                            <CheckCircle2 size={20} /> ¡Blueprint enviado! Revisa tu correo ahora mismo.
-                        </div>
-                    ) : (
-                        <form onSubmit={handleSubmit} className="blueprint-form-row">
-                            <input
-                                type="text"
-                                name="name"
-                                placeholder="Tu nombre"
-                                required
-                                style={{
-                                    flex: 1,
-                                    padding: '1rem 1.5rem',
-                                    border: '1px solid #E2E8F0',
-                                    borderRadius: '12px',
-                                    fontSize: '1rem',
-                                    backgroundColor: '#F8FAFC',
-                                    outline: 'none',
-                                    minWidth: '200px'
-                                }}
-                            />
-                            <input
-                                type="email"
-                                name="email"
-                                placeholder="tu@email.com"
-                                required
-                                style={{
-                                    flex: 1,
-                                    padding: '1rem 1.5rem',
-                                    border: '1px solid #E2E8F0',
-                                    borderRadius: '12px',
-                                    fontSize: '1rem',
-                                    backgroundColor: '#F8FAFC',
-                                    outline: 'none',
-                                    minWidth: '200px'
-                                }}
-                            />
-                            <button
-                                type="submit"
-                                disabled={status === 'submitting'}
-                                className="hover-lift"
-                                style={{
-                                    padding: '1rem 2rem',
-                                    backgroundColor: status === 'submitting' ? '#94A3B8' : 'var(--color-brand-blue)',
-                                    color: 'white',
-                                    border: 'none',
-                                    borderRadius: '12px',
-                                    fontWeight: 700,
-                                    fontSize: '1rem',
-                                    cursor: status === 'submitting' ? 'not-allowed' : 'pointer',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '0.75rem',
-                                    boxShadow: '0 10px 20px rgba(41, 98, 255, 0.2)',
-                                    transition: 'all 0.3s ease',
-                                    whiteSpace: 'nowrap'
-                                }}
-                            >
-                                <Download size={18} />
-                                {status === 'submitting' ? 'ENVIANDO...' : 'DESCARGAR GRATIS'}
-                            </button>
-                        </form>
-                    )}
+                    {/* Mockup Image */}
+                    <div className="animate-up" style={{
+                        width: '100%',
+                        maxWidth: '700px',
+                        margin: '0 auto',
+                        filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.12))',
+                        position: 'relative'
+                    }}>
+                        <img
+                            src={mockupImg}
+                            alt="Blueprint Nova Mockup"
+                            style={{
+                                width: '100%',
+                                height: 'auto',
+                                borderRadius: '12px'
+                            }}
+                        />
+                    </div>
 
-                    <p style={{ fontSize: '0.85rem', color: '#94A3B8', fontWeight: 500 }}>
-                        Únete a +150 dueños de marcas que ya escalan con nosotros.
-                    </p>
+                    {/* Single-Line Form */}
+                    <div style={{ width: '100%', maxWidth: '900px', marginTop: '1rem' }}>
+                        {status === 'success' ? (
+                            <div className="animate-up" style={{
+                                backgroundColor: '#F0FDF4',
+                                padding: '1.25rem 2.5rem',
+                                borderRadius: '100px',
+                                border: '1px solid #BBF7D0',
+                                color: '#166534',
+                                fontWeight: 700,
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '1rem',
+                                boxShadow: '0 10px 30px rgba(22, 101, 52, 0.1)'
+                            }}>
+                                <CheckCircle2 size={24} /> ¡Blueprint enviado! Revisa tu bandeja de entrada.
+                            </div>
+                        ) : (
+                            <form onSubmit={handleSubmit} className="blueprint-form-row-enhanced">
+                                <input
+                                    type="text"
+                                    name="name"
+                                    placeholder="Tu nombre completo"
+                                    required
+                                    style={{
+                                        flex: 2,
+                                        padding: '1.1rem 1.75rem',
+                                        border: '1px solid #E2E8F0',
+                                        borderRadius: '16px',
+                                        fontSize: '1rem',
+                                        backgroundColor: 'white',
+                                        outline: 'none',
+                                        boxShadow: '0 2px 10px rgba(0,0,0,0.02)'
+                                    }}
+                                />
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="tu@email.com"
+                                    required
+                                    style={{
+                                        flex: 2,
+                                        padding: '1.1rem 1.75rem',
+                                        border: '1px solid #E2E8F0',
+                                        borderRadius: '16px',
+                                        fontSize: '1rem',
+                                        backgroundColor: 'white',
+                                        outline: 'none',
+                                        boxShadow: '0 2px 10px rgba(0,0,0,0.02)'
+                                    }}
+                                />
+                                <button
+                                    type="submit"
+                                    disabled={status === 'submitting'}
+                                    className="hover-lift"
+                                    style={{
+                                        flex: 1,
+                                        padding: '1.1rem 2.5rem',
+                                        backgroundColor: status === 'submitting' ? '#94A3B8' : 'var(--color-brand-blue)',
+                                        color: 'white',
+                                        border: 'none',
+                                        borderRadius: '16px',
+                                        fontWeight: 800,
+                                        fontSize: '1rem',
+                                        cursor: status === 'submitting' ? 'not-allowed' : 'pointer',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        gap: '0.75rem',
+                                        boxShadow: '0 12px 24px rgba(41, 98, 255, 0.25)',
+                                        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                                        whiteSpace: 'nowrap'
+                                    }}
+                                >
+                                    <Download size={20} />
+                                    {status === 'submitting' ? 'PROCESANDO...' : 'RECLAMAR BLUEPRINT'}
+                                </button>
+                            </form>
+                        )}
+                        <p style={{ fontSize: '0.9rem', color: '#94A3B8', fontWeight: 600, marginTop: '2rem' }}>
+                            <span style={{ color: 'var(--color-brand-blue)' }}>★ ★ ★ ★ ★</span> +150 dueños de marcas ya escalan con nosotros.
+                        </p>
+                    </div>
                 </div>
             </div>
 
             <style>{`
-                .blueprint-form-row {
+                .blueprint-form-row-enhanced {
                     display: flex;
-                    gap: 1rem;
+                    gap: 1.25rem;
                     width: 100%;
-                    max-width: 850px;
-                    background: white;
-                    padding: 0.75rem;
-                    border-radius: '20px';
-                    transition: all 0.3s ease;
+                    background: #F1F5F9;
+                    padding: 1rem;
+                    border-radius: 24px;
+                    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
                 }
-                @media (max-width: 768px) {
-                    .blueprint-form-row {
+                @media (max-width: 850px) {
+                    .blueprint-form-row-enhanced {
                         flex-direction: column;
+                        background: none;
                         padding: 0;
+                        gap: 1rem;
                     }
-                    .blueprint-form-row input, .blueprint-form-row button {
+                    .blueprint-form-row-enhanced input, .blueprint-form-row-enhanced button {
                         width: 100%;
+                        border-radius: 12px;
                     }
                 }
             `}</style>
