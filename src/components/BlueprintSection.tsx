@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Download, CheckCircle2, X, Sparkles, Zap, BarChart3 } from 'lucide-react';
+import { Download, CheckCircle2, Sparkles, Zap, BarChart3 } from 'lucide-react';
 
 export const BlueprintSection: React.FC = () => {
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');

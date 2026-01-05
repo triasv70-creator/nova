@@ -4,27 +4,27 @@ import { MonitorPlay, Target, Workflow, Users2, Globe } from 'lucide-react';
 
 const services = [
     {
-        icon: <MonitorPlay strokeWidth={1.5} />,
+        icon: MonitorPlay,
         title: 'Contenido Digital',
         description: 'Creamos activos visuales de alto impacto diseñados para capturar la atención y proyectar la esencia única de tu marca.'
     },
     {
-        icon: <Target strokeWidth={1.5} />,
+        icon: Target,
         title: 'Publicidad Digital',
         description: 'Estrategias de pauta basadas en datos para maximizar tu retorno de inversión con optimización científica constante.'
     },
     {
-        icon: <Workflow strokeWidth={1.5} />,
+        icon: Workflow,
         title: 'Leads y Gestión',
         description: 'Sistemas automatizados para capturar prospectos calificados y sincronizarlos con tu CRM para orquestar tus ventas.'
     },
     {
-        icon: <Users2 strokeWidth={1.5} />,
+        icon: Users2,
         title: 'Community Management',
         description: 'Construimos comunidades digitales activas a través de narrativa estratégica que genera lealtad y conversión.'
     },
     {
-        icon: <Globe strokeWidth={1.5} />,
+        icon: Globe,
         title: 'Desarrollo Web',
         description: 'Experiencias digitales de alta conversión que fusionan diseño de vanguardia con un rendimiento técnico impecable.'
     }
@@ -55,7 +55,7 @@ export const Services: React.FC = () => {
                         <div key={i} className="service-card-interactive">
                             <div className="card-content">
                                 <div className="icon-wrapper">
-                                    {React.cloneElement(s.icon as React.ReactElement, { size: 48 })}
+                                    <s.icon size={48} strokeWidth={1.5} />
                                 </div>
                                 <h3 className="service-title">{s.title}</h3>
                                 <p className="service-description">{s.description}</p>
