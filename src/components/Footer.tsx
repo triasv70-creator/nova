@@ -1,6 +1,6 @@
-
 import React from 'react';
 import logo from '../assets/logo.png';
+import { Instagram, Linkedin, Music2 } from 'lucide-react';
 
 export const Footer: React.FC = () => {
     return (
@@ -31,10 +31,16 @@ export const Footer: React.FC = () => {
                         </a>
                     </div>
 
-                    <div style={{ display: 'flex', gap: '2rem' }}>
-                        <a href="#" style={{ color: 'white', textDecoration: 'none', opacity: 0.7 }}>Instagram</a>
-                        <a href="#" style={{ color: 'white', textDecoration: 'none', opacity: 0.7 }}>LinkedIn</a>
-                        <a href="#" style={{ color: 'white', textDecoration: 'none', opacity: 0.7 }}>TikTok</a>
+                    <div style={{ display: 'flex', gap: '1.5rem' }}>
+                        <a href="https://www.instagram.com/novamktlab" target="_blank" rel="noopener noreferrer" className="hover-lift" style={{ color: 'white', opacity: 0.8 }}>
+                            <Instagram size={24} />
+                        </a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" className="hover-lift" style={{ color: 'white', opacity: 0.8 }}>
+                            <Linkedin size={24} />
+                        </a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" className="hover-lift" style={{ color: 'white', opacity: 0.8 }}>
+                            <Music2 size={24} /> {/* Using Music2 for TikTok */}
+                        </a>
                     </div>
 
                     <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.85rem' }}>
