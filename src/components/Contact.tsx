@@ -12,38 +12,47 @@ export const Contact: React.FC = () => {
                     Conversemos y diseñemos una estrategia hecha a la medida de tu negocio.
                 </p>
 
-                <form style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '1rem',
-                    backgroundColor: 'white',
-                    padding: '2rem',
-                    borderRadius: '4px',
-                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
-                }}>
-                    <input type="text" placeholder="Tu Nombre o Empresa" style={{
+                <form
+                    action="https://formsubmit.co/adrian@novamktlab.com"
+                    method="POST"
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '1rem',
+                        backgroundColor: 'white',
+                        padding: '2rem',
+                        borderRadius: '4px',
+                        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
+                    }}
+                >
+                    {/* Form Settings */}
+                    <input type="hidden" name="_subject" value="Nueva Solicitud de Propuesta - Nova Marketing Lab" />
+                    <input type="hidden" name="_template" value="table" />
+                    <input type="hidden" name="_captcha" value="false" />
+
+                    <input type="text" name="name" placeholder="Tu Nombre o Empresa" required style={{
                         padding: '1rem',
                         border: '1px solid #e5e7eb',
                         borderRadius: '2px',
                         fontFamily: 'var(--font-body)'
                     }} />
-                    <input type="email" placeholder="Tu Email Corporativo" style={{
+                    <input type="email" name="email" placeholder="Tu Email Corporativo" required style={{
                         padding: '1rem',
                         border: '1px solid #e5e7eb',
                         borderRadius: '2px',
                         fontFamily: 'var(--font-body)'
                     }} />
-                    <textarea placeholder="Cuéntanos brevemente tus objetivos..." rows={5} style={{
+                    <textarea name="message" placeholder="Cuéntanos brevemente tus objetivos..." rows={5} required style={{
                         padding: '1rem',
                         border: '1px solid #e5e7eb',
                         borderRadius: '2px',
                         fontFamily: 'var(--font-body)'
                     }}></textarea>
 
-                    <button className="hover-lift" style={{
+                    <button type="submit" className="hover-lift" style={{
                         marginTop: '1rem',
                         padding: '1rem',
-                        background: 'linear-gradient(to right, var(--color-brand-blue), var(--color-accent-blue))', // Simplified gradient
+                        background: 'linear-gradient(to right, var(--color-brand-blue), var(--color-accent-blue))',
                         backgroundColor: 'var(--color-brand-blue)',
                         color: 'white',
                         border: 'none',
