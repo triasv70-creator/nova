@@ -112,13 +112,29 @@ export const Chatbot: React.FC = () => {
             setLeadStep('contact');
             addBotMessage(`Mucho gusto, ${currentInput}. 👋 ¿A qué email o WhatsApp podemos enviarte la propuesta?`);
         } else if (leadStep === 'contact') {
-            setLeadData(prev => ({ ...prev, contact: currentInput }));
+            const finalLeadData = { ...leadData, contact: currentInput };
+            setLeadData(finalLeadData);
             setLeadStep('finished');
+
+            // Automate Email Notification
+            fetch("https://formsubmit.co/ajax/contacto@novamktlab.com", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    Nombre: finalLeadData.name,
+                    Contacto: finalLeadData.contact,
+                    Servicio: finalLeadData.service,
+                    _subject: "🚀 Nuevo Lead de Chatbot - Nova Marketing Lab"
+                })
+            }).catch(err => console.error("Error sending lead email:", err));
 
             // Meta Pixel Lead Event
             if ((window as any).fbq) {
                 (window as any).fbq('track', 'Lead', {
-                    content_name: leadData.service,
+                    content_name: finalLeadData.service,
                     value: 0,
                     currency: 'USD'
                 });
@@ -128,7 +144,7 @@ export const Chatbot: React.FC = () => {
                 { label: '📲 Ir a WhatsApp Ahora', action: 'direct_wa' },
                 { label: 'Volver a empezar', action: 'reset' }
             ]);
-        } else if (action_is_direct_wa(currentInput)) { // Helper for direct WA from text if needed, but we use switch usually
+        } else if (action_is_direct_wa(currentInput)) {
             // Standard response for non-lead messages
             addBotMessage('Entendido. ¿Hay algo más en lo que pueda ayudarte?');
         }
