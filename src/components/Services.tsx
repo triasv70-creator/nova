@@ -6,27 +6,27 @@ const services = [
     {
         icon: MonitorPlay,
         title: 'Contenido Digital',
-        description: 'Creamos activos visuales de alto impacto diseñados para capturar la atención y proyectar la esencia única de tu marca.'
+        description: 'Creación de contenido visual con IA y producción profesional de fotografía y video para elevar tu marca'
     },
     {
         icon: Target,
         title: 'Publicidad Digital',
-        description: 'Estrategias de pauta basadas en datos para maximizar tu retorno de inversión con optimización científica constante.'
+        description: 'Campañas optimizadas en META, Google, TikTok y LinkedIn para maximizar tu ROI y alcanzar tus objetivos'
     },
     {
         icon: Workflow,
-        title: 'Leads y Gestión',
-        description: 'Sistemas automatizados para capturar prospectos calificados y sincronizarlos con tu CRM para orquestar tus ventas.'
+        title: 'Leads & Gestión',
+        description: 'Implementación de CRM, automatización de marketing y estrategias para convertir prospectos en clientes'
     },
     {
         icon: Users2,
         title: 'Community Management',
-        description: 'Construimos comunidades digitales activas a través de narrativa estratégica que genera lealtad y conversión.'
+        description: 'Gestión estratégica de redes sociales para construir comunidad, engagement y presencia de marca consistente'
     },
     {
         icon: Globe,
         title: 'Desarrollo Web',
-        description: 'Experiencias digitales de alta conversión que fusionan diseño de vanguardia con un rendimiento técnico impecable.'
+        description: 'Sitios web de alto rendimiento, optimizados para conversión y alineados perfectamente con tu identidad de marca'
     }
 ];
 
@@ -46,7 +46,7 @@ export const Services: React.FC = () => {
                         Nuestras Capacidades
                     </div>
                     <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#0F172A', fontWeight: 800 }}>
-                        Ciencia aplicada al <span className="text-brand-blue">Marketing</span>
+                        Soluciones Integrales de <span className="text-brand-blue">Marketing Digital</span>
                     </h2>
                 </div>
 

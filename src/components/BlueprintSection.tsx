@@ -38,8 +38,8 @@ export const BlueprintSection: React.FC = () => {
     };
 
     const miniFeatures = [
-        { icon: <Sparkles size={16} />, text: "Oferta Irresistible" },
-        { icon: <Zap size={16} />, text: "Embudo Rentable" },
+        { icon: <Sparkles size={16} />, text: "Ideas Probadas" },
+        { icon: <Zap size={16} />, text: "Procesos Técnicos" },
         { icon: <BarChart3 size={16} />, text: "Métricas Clave" }
     ];
 
@@ -68,10 +68,10 @@ export const BlueprintSection: React.FC = () => {
                             marginBottom: '1rem',
                             lineHeight: '1.1'
                         }}>
-                            Descarga el <span className="text-brand-blue">Blueprint</span> de Escalamiento Nova
+                            Descarga Gratis: <span className="text-brand-blue">Blueprint de Escalamiento</span> para tu Negocio
                         </h2>
                         <p style={{ fontSize: '1.1rem', color: '#64748B', marginBottom: '1.5rem' }}>
-                            La metodología científica para dominar tus ventas digitales.
+                            Descubre nuestra metodología paso a paso para transformar tu presencia digital y aumentar tus ventas.
                         </p>
                         <div style={{
                             display: 'flex',
@@ -183,7 +183,7 @@ export const BlueprintSection: React.FC = () => {
                                     }}
                                 >
                                     <Download size={20} />
-                                    {status === 'submitting' ? 'PROCESANDO...' : 'RECLAMAR BLUEPRINT'}
+                                    {status === 'submitting' ? 'PROCESANDO...' : 'Descargar Blueprint Gratis'}
                                 </button>
                             </form>
                         )}

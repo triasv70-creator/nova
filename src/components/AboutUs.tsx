@@ -8,22 +8,30 @@ export const AboutUs: React.FC = () => {
                 <div className="animate-up">
                     <h5 className="font-technical text-brand-blue" style={{ marginBottom: '1rem', letterSpacing: '2px' }}>[ NOSOTROS ]</h5>
                     <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem', lineHeight: '1.2' }}>
-                        Laboratorio de <span className="text-gradient-growth">Estrategia</span> Digital
+                        Tu Laboratorio de <span className="text-gradient-growth">Estrategia</span> Digital
                     </h2>
-                    <p style={{ color: 'var(--color-text-muted)', marginBottom: '2rem', fontSize: '1.1rem' }}>
-                        En NOVA Marketing Lab, no solo gestionamos marcas; las transformamos. Fusionamos creatividad disruptiva con análisis de datos para crear ecosistemas digitales que impulsan el crecimiento real.
+                    <p style={{ color: 'var(--color-text-muted)', marginBottom: '1rem', fontSize: '1.1rem' }}>
+                        En Nova Marketing Lab no vendemos paquetes genéricos. Somos tu aliado estratégico: estudiamos tu negocio, entendemos tus objetivos y diseñamos soluciones que realmente funcionan.
                     </p>
-                    <p style={{ color: 'var(--color-text-muted)', marginBottom: '2.5rem', fontSize: '1.1rem' }}>
-                        Nuestro enfoque "Antigravity" busca romper las barreras convencionales del marketing, permitiendo que tu negocio escale con agilidad y precisión en un mercado en constante cambio.
-                    </p>
+                    <div style={{ color: 'var(--color-text-muted)', marginBottom: '2.5rem', fontSize: '1rem' }}>
+                        <p style={{ marginBottom: '0.5rem' }}>Nuestro enfoque combina:</p>
+                        <ul style={{ listStyle: 'disc', paddingLeft: '1.5rem' }}>
+                            <li>Análisis profundo de tu mercado y audiencia</li>
+                            <li>Tecnología innovadora (IA, automatización, herramientas de vanguardia)</li>
+                            <li>Estrategias data-driven para decisiones basadas en resultados reales</li>
+                            <li>Flexibilidad total para adaptarnos a tu presupuesto y etapa de crecimiento</li>
+                        </ul>
+                    </div>
                     <div style={{ display: 'flex', gap: '2rem' }}>
                         <div>
                             <h4 style={{ fontSize: '2rem', color: 'var(--color-brand-blue)' }}>100%</h4>
-                            <p style={{ fontSize: '0.8rem', fontWeight: 600 }}>ENFOQUE EN ROI</p>
+                            <p style={{ fontSize: '0.8rem', fontWeight: 600 }}>INNOVACIÓN</p>
+                            <p style={{ fontSize: '0.7rem', color: '#64748B' }}>Soluciones adaptadas a tu realidad</p>
                         </div>
                         <div style={{ borderLeft: '1px solid #E5E7EB', paddingLeft: '2rem' }}>
                             <h4 style={{ fontSize: '2rem', color: 'var(--color-brand-blue)' }}>24/7</h4>
                             <p style={{ fontSize: '0.8rem', fontWeight: 600 }}>OPTIMIZACIÓN</p>
+                            <p style={{ fontSize: '0.7rem', color: '#64748B', maxWidth: '150px' }}>Monitoreo y mejora continua</p>
                         </div>
                     </div>
                 </div>

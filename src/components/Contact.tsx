@@ -38,13 +38,25 @@ export const Contact: React.FC = () => {
         <section id="contact" style={{ padding: 'var(--spacing-section) 0', backgroundColor: 'var(--bg-secondary)' }}>
             <div className="container" style={{ maxWidth: '600px', textAlign: 'center' }}>
                 <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>
-                    ¿Listo para escalar tu <span className="text-brand-blue">Marketing Digital</span>?
+                    ¿Listo para Impulsar tu <span className="text-brand-blue">Negocio</span>?
                 </h2>
                 <p style={{ marginBottom: '2.5rem', color: 'var(--color-text-muted)' }}>
                     {status === 'success'
                         ? '¡Gracias por tu interés!'
-                        : 'Conversemos y diseñemos una estrategia hecha a la medida de tu negocio.'}
+                        : 'Agenda una consulta estratégica sin costo y descubre cómo podemos transformar tu marketing digital.'}
                 </p>
+
+                {/* Pre-Form Steps */}
+                {status !== 'success' && (
+                    <div style={{ marginBottom: '2rem', textAlign: 'left', backgroundColor: '#F8FAFC', padding: '1.5rem', borderRadius: '8px' }}>
+                        <h4 style={{ marginBottom: '1rem', color: '#0F172A', fontSize: '1.1rem' }}>Proceso rápido:</h4>
+                        <ol style={{ margin: 0, paddingLeft: '1.2rem', color: '#475569', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                            <li><strong>Te Envío el Calendario</strong> → Elige el horario que mejor te funcione</li>
+                            <li><strong>Te Hago Preguntas</strong> → Comparte tu brief y objetivos de negocio</li>
+                            <li><strong>Obtienes tu Estrategia</strong> → Recibe propuesta personalizada con servicios y cotización</li>
+                        </ol>
+                    </div>
+                )}
 
                 {status === 'success' ? (
                     <div className="animate-up" style={{
@@ -121,7 +133,7 @@ export const Contact: React.FC = () => {
                                 letterSpacing: '0.05em'
                             }}
                         >
-                            {status === 'submitting' ? 'ENVIANDO...' : 'SOLICITAR PROPUESTA'}
+                            {status === 'submitting' ? 'ENVIANDO...' : 'Solicitar Propuesta Personalizada'}
                         </button>
                         {status === 'error' && (
                             <p style={{ color: '#ef4444', fontSize: '0.9rem', marginTop: '1rem' }}>

@@ -14,7 +14,7 @@ export const TargetAudience: React.FC = () => {
                     margin: '0 auto'
                 }}>
                     <h2 style={{ fontSize: '2.5rem', marginBottom: '3rem' }}>
-                        ¿Para quién es <span className="text-brand-blue">NOVA</span>?
+                        ¿Para Quién es <span className="text-brand-blue">Nova Marketing Lab</span>?
                     </h2>
 
                     <div style={{
@@ -24,10 +24,10 @@ export const TargetAudience: React.FC = () => {
                         width: '100%'
                     }}>
                         {[
-                            "Empresas de productos o servicios que buscan crecer en digital.",
-                            "PyMEs y emprendedores que quieren resultados sin desperdiciar presupuesto.",
-                            "Marcas que necesitan orden, estrategia y medición.",
-                            "Negocios que entienden que marketing es inversión, no gasto."
+                            "Startups y emprendimientos que buscan crear su marca digital desde cero con presupuestos inteligentes",
+                            "PyMEs y empresas medianas que quieren profesionalizar su marketing y aumentar ventas de forma medible",
+                            "Negocios en crecimiento que necesitan escalar sus estrategias con un aliado estratégico confiable",
+                            "Empresas establecidas buscando innovar su presencia digital y mantenerse competitivas en su mercado"
                         ].map((item, index) => (
                             <div key={index} style={{
                                 padding: '1.5rem',
