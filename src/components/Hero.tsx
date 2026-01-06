@@ -37,32 +37,38 @@ export const Hero: React.FC = () => {
                 </p>
 
                 <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                    <button className="hover-lift" style={{
-                        padding: '1rem 2rem',
-                        backgroundColor: 'var(--color-brand-blue)',
-                        color: 'white',
-                        border: 'none',
-                        borderRadius: '2px',
-                        fontSize: '1rem',
-                        fontWeight: 700,
-                        fontFamily: 'var(--font-brand)',
-                        letterSpacing: '0.05em'
-                    }}>
-                        SOLICITAR PROPUESTA
-                    </button>
+                    <a href="#contact" style={{ textDecoration: 'none' }}>
+                        <button className="hover-lift" style={{
+                            padding: '1rem 2rem',
+                            backgroundColor: 'var(--color-brand-blue)',
+                            color: 'white',
+                            border: 'none',
+                            borderRadius: '2px',
+                            fontSize: '1rem',
+                            fontWeight: 700,
+                            fontFamily: 'var(--font-brand)',
+                            letterSpacing: '0.05em',
+                            cursor: 'pointer'
+                        }}>
+                            SOLICITAR PROPUESTA
+                        </button>
+                    </a>
 
-                    <button className="hover-lift" style={{
-                        padding: '1rem 2rem',
-                        backgroundColor: 'transparent',
-                        color: 'var(--color-text-main)',
-                        border: '2px solid #E5E7EB',
-                        borderRadius: '2px',
-                        fontSize: '1rem',
-                        fontWeight: 600,
-                        fontFamily: 'var(--font-brand)'
-                    }}>
-                        VER SERVICIOS
-                    </button>
+                    <a href="#services" style={{ textDecoration: 'none' }}>
+                        <button className="hover-lift" style={{
+                            padding: '1rem 2rem',
+                            backgroundColor: 'transparent',
+                            color: 'var(--color-text-main)',
+                            border: '2px solid #E5E7EB',
+                            borderRadius: '2px',
+                            fontSize: '1rem',
+                            fontWeight: 600,
+                            fontFamily: 'var(--font-brand)',
+                            cursor: 'pointer'
+                        }}>
+                            VER SERVICIOS
+                        </button>
+                    </a>
                 </div>
             </div>
         </section>
