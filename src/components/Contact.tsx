@@ -133,7 +133,7 @@ export const Contact: React.FC = () => {
 
                 <div className="contact-links" style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '2rem' }}>
                     <span style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
-                        📧 hola@novamarketinglab.com
+                        📧 hola@novamktlab.com
                     </span>
                     <span style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
                         📱 WhatsApp Directo
