@@ -11,7 +11,7 @@ export const Contact: React.FC = () => {
         const data = Object.fromEntries(formData.entries());
 
         try {
-            const response = await fetch("https://formsubmit.co/ajax/contacto@novamktlab.com", {
+            const response = await fetch("https://formsubmit.co/ajax/ac5eb6254b7ad1a0cfa85830fda84cd9", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -133,7 +133,7 @@ export const Contact: React.FC = () => {
 
                 <div className="contact-links" style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '2rem' }}>
                     <span style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
-                        📧 contacto@novamarketinglab.com
+                        📧 hola@novamarketinglab.com
                     </span>
                     <span style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
                         📱 WhatsApp Directo
