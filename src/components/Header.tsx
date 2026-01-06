@@ -10,10 +10,10 @@ export const Header: React.FC = () => {
             top: '0',
             left: '0',
             width: '100%',
-            padding: '1.5rem 4%',
+            padding: '1rem 4%',
             display: 'flex',
             justifyContent: 'space-between',
-            alignItems: 'flex-start',
+            alignItems: 'center',
             pointerEvents: 'none', // Allow clicking through the header area
             zIndex: 1000
         }}>
@@ -124,9 +124,9 @@ export const Header: React.FC = () => {
             </div>
 
             <style>{`
-                @media (max-width: 900px) {
+                @media (max-width: 1100px) {
                     header {
-                        padding: 1rem 4% !important;
+                        padding: 0.75rem 4% !important;
                     }
                     div[style*="height: 65px"] {
                         gap: 1rem !important;
@@ -138,7 +138,7 @@ export const Header: React.FC = () => {
                     }
                     .nav-menu {
                         position: absolute;
-                        top: 120%;
+                        top: 100%;
                         right: 0;
                         width: 200px;
                         background: white;
