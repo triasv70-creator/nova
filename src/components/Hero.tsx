@@ -53,7 +53,7 @@ export const Hero: React.FC = () => {
                     </button>
                 </a>
 
-                <a href="#services" style={{ textDecoration: 'none' }}>
+                <a href="#que-hacemos" style={{ textDecoration: 'none' }}>
                     <button className="hover-lift" style={{
                         padding: '1rem 2rem',
                         backgroundColor: 'transparent',
@@ -65,11 +65,10 @@ export const Hero: React.FC = () => {
                         fontFamily: 'var(--font-brand)',
                         cursor: 'pointer'
                     }}>
-                        Conoce Nuestros Servicios
+                        Qué Hacemos
                     </button>
                 </a>
             </div>
-        </div>
-        </section >
+        </section>
     );
 };

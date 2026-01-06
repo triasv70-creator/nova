@@ -93,7 +93,7 @@ export const Chatbot: React.FC = () => {
             localStorage.removeItem('nova_chat_messages');
             localStorage.removeItem('nova_lead_data');
         } else if (action === 'link_portfolio') {
-            window.open('#services', '_self');
+            window.open('#que-hacemos', '_self');
             addBotMessage('Aquí puedes ver algunos de nuestros trabajos. ¿Qué te parece?');
         }
     };

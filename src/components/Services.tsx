@@ -32,7 +32,7 @@ const services = [
 
 export const Services: React.FC = () => {
     return (
-        <section id="services" style={{ padding: 'var(--spacing-section) 0', backgroundColor: '#FDFDFD' }}>
+        <section id="que-hacemos" style={{ padding: 'var(--spacing-section) 0', backgroundColor: '#FDFDFD' }}>
             <div className="container">
                 <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
                     <div style={{

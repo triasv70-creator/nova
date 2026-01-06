@@ -87,7 +87,7 @@ export const Header: React.FC = () => {
                         padding: 0
                     }}>
                         <li>
-                            <a href="#services" onClick={() => setIsMenuOpen(false)} style={{
+                            <a href="#que-hacemos" onClick={() => setIsMenuOpen(false)} style={{
                                 textDecoration: 'none',
                                 color: '#0F172A',
                                 fontWeight: 700,
