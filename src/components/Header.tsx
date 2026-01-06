@@ -10,7 +10,7 @@ export const Header: React.FC = () => {
             top: '0',
             left: '0',
             width: '100%',
-            padding: '1rem 4%',
+            padding: '1rem 6%',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
