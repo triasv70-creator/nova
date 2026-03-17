@@ -1,33 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto+Mono:wght@300;400;500&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@300;400;500&display=swap');
 
 :root {
-  /* Branding Colors */
-  --bg-primary: #FFFFFF;
-  --bg-secondary: #FAFAFA;
-  /* Very light grey for subtle contrast */
+  /* Branding Colors - Brand Manual Nova Marketing Lab */
+  --bg-dark: #021238;
+  /* Azul Oscuro */
+  --bg-primary: #FAFAFA;
+  /* Blanco Marfil */
+  --bg-secondary: #F1F5F9;
 
-  --color-brand-blue: #2962FF;
-  /* Electric Blue - Main Identity */
-  --color-accent-cyan: #00E5FF;
-  /* Gradient Start */
-  --color-accent-lime: #76FF03;
-  /* Gradient End */
+  --color-brand-blue: #0E43E7;
+  /* Azul Principal */
+  --color-brand-mint: #4FEEF2;
+  /* Azul Menta */
+  --color-accent-blue: #2962FF;
 
-  --color-text-main: #1A1A1A;
-  /* Almost Black */
-  --color-text-muted: #6B7280;
+  --color-text-main: #021238;
+  /* Azul Oscuro as main text */
+  --color-text-light: #FAFAFA;
+  --color-text-muted: #64748B;
 
   /* Typography */
   --font-brand: 'Montserrat', sans-serif;
-  /* NOVA */
+  --font-body: 'Montserrat', sans-serif;
   --font-technical: 'Roboto Mono', monospace;
-  /* MARKETING LAB */
-  --font-body: 'Inter', sans-serif;
-  /* Content */
 
   /* Spacing & Layout */
   --spacing-container: 1200px;
-  --spacing-section: 6rem;
+  --spacing-section: 8rem;
+
+  --brand-gradient: linear-gradient(135deg, #0E43E7 0%, #4FEEF2 100%);
 }
 
 @media (max-width: 768px) {

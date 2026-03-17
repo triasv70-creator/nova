@@ -32,7 +32,7 @@ const services = [
 
 export const Services: React.FC = () => {
     return (
-        <section id="que-hacemos" style={{ padding: 'var(--spacing-section) 0', backgroundColor: '#FDFDFD' }}>
+        <section id="services" style={{ padding: 'var(--spacing-section) 0', backgroundColor: 'var(--bg-secondary)' }}>
             <div className="container">
                 <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
                     <div style={{
@@ -45,8 +45,8 @@ export const Services: React.FC = () => {
                     }}>
                         Nuestras Capacidades
                     </div>
-                    <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#0F172A', fontWeight: 800 }}>
-                        Soluciones Integrales de <span className="text-brand-blue">Marketing Digital</span>
+                    <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'var(--bg-dark)', fontWeight: 800 }}>
+                        Soluciones Integrales de <span style={{ color: 'var(--color-brand-blue)' }}>Marketing Digital</span>
                     </h2>
                 </div>
 
@@ -76,10 +76,10 @@ export const Services: React.FC = () => {
 
                 .service-card-interactive {
                     background: white;
-                    border: 1px solid #F1F5F9;
-                    border-radius: 20px;
-                    padding: 2.5rem 1rem;
-                    height: 280px;
+                    border: 1px solid rgba(14, 67, 231, 0.1);
+                    border-radius: 12px;
+                    padding: 2.5rem 1.25rem;
+                    height: 260px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -136,9 +136,9 @@ export const Services: React.FC = () => {
 
                 /* Hover States */
                 .service-card-interactive:hover {
-                    border-color: rgba(41, 98, 255, 0.2);
-                    box-shadow: 0 20px 40px -10px rgba(41, 98, 255, 0.1);
-                    height: 320px;
+                    border-color: var(--color-brand-blue);
+                    box-shadow: 0 20px 40px -10px rgba(14, 67, 231, 0.15);
+                    height: 300px;
                 }
 
                 .service-card-interactive:hover .icon-wrapper {

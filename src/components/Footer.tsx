@@ -1,30 +1,23 @@
 import React from 'react';
-import logo from '../assets/logo.png';
+import brandLogo from '../assets/nuevo_logo.png';
 import { Instagram, Linkedin, Music2 } from 'lucide-react';
 
 export const Footer: React.FC = () => {
     return (
         <footer style={{
             padding: '4rem 0',
-            backgroundColor: '#0F172A', // Dark footer for contrast
-            color: 'white',
-            marginTop: 'auto'
+            backgroundColor: 'var(--bg-dark)', // #021238 from brand manual
+            color: 'var(--color-text-light)',
+            marginTop: 'auto',
+            borderTop: '1px solid rgba(79, 238, 242, 0.1)'
         }}>
             <div className="container">
                 <div className="footer-content" style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '3rem', alignItems: 'center' }}>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                        {/* Logo in a white card to handle opaque backgrounds elegantly */}
-                        <a href="#" style={{
-                            display: 'inline-block',
-                            textDecoration: 'none',
-                            backgroundColor: 'white',
-                            padding: '1rem',
-                            borderRadius: '8px',
-                            boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
-                        }}>
-                            <img src={logo} alt="NOVA Marketing Lab" style={{
-                                height: '60px', // Adjusted for container padding
+                        <a href="#" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }} className="hover-lift">
+                            <img src={brandLogo} alt="NOVA Marketing Lab" style={{
+                                height: '50px',
                                 width: 'auto',
                                 objectFit: 'contain'
                             }} />

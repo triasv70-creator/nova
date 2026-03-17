@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import logo from '../assets/logo.png';
+import brandLogo from '../assets/nuevo_logo.png';
 
 export const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,22 +36,23 @@ export const Header: React.FC = () => {
             {/* Logo Island */}
             <div style={{
                 pointerEvents: 'auto',
-                backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                backdropFilter: 'blur(10px)',
-                WebkitBackdropFilter: 'blur(10px)',
-                padding: isScrolled ? '0.5rem 1.2rem' : '0.75rem 1.5rem',
-                borderRadius: '24px',
-                border: '1px solid rgba(255, 255, 255, 0.3)',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.05)',
+                backgroundColor: 'rgba(2, 18, 56, 0.9)', // Azul Oscuro
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                padding: isScrolled ? '0.4rem 1rem' : '0.6rem 1.4rem',
+                borderRadius: '16px',
+                border: '1px solid rgba(79, 238, 242, 0.3)', // Azul Menta border
+                boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
                 display: 'flex',
                 alignItems: 'center',
                 transition: 'all 0.3s ease'
             }}>
                 <a href="#" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }} className="hover-lift">
-                    <img src={logo} alt="NOVA Marketing Lab" style={{
-                        height: isScrolled ? '60px' : 'clamp(70px, 10vw, 110px)',
+                    <img src={brandLogo} alt="NOVA Marketing Lab" style={{
+                        height: isScrolled ? '32px' : '45px',
                         width: 'auto',
                         objectFit: 'contain',
+                        filter: 'drop-shadow(0 0 4px rgba(79, 238, 242, 0.2))',
                         transition: 'all 0.3s ease'
                     }} />
                 </a>
@@ -60,19 +61,19 @@ export const Header: React.FC = () => {
             {/* Nav Pill Island */}
             <div style={{
                 pointerEvents: 'auto',
-                backgroundColor: 'rgba(255, 255, 255, 0.85)',
+                backgroundColor: 'rgba(2, 18, 56, 0.9)', // Azul Oscuro
                 backdropFilter: 'blur(12px)',
                 WebkitBackdropFilter: 'blur(12px)',
-                padding: isScrolled ? '0.5rem' : '0.6rem 2rem',
+                padding: isScrolled ? '0.5rem' : '0.6rem 1.8rem',
                 borderRadius: isScrolled ? '50%' : '100px',
-                border: '1px solid rgba(255, 255, 255, 0.3)',
-                boxShadow: '0 15px 35px rgba(0,0,0,0.05)',
+                border: '1px solid rgba(79, 238, 242, 0.2)', // Azul Menta border
+                boxShadow: '0 15px 35px rgba(0,0,0,0.3)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: isScrolled ? '0' : '2rem',
-                height: isScrolled ? '60px' : '65px',
-                width: isScrolled ? '60px' : 'auto',
+                height: isScrolled ? '55px' : '60px',
+                width: isScrolled ? '55px' : 'auto',
                 transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
             }}>
                 <nav className={`nav-menu ${isMenuOpen ? 'open' : ''}`} style={{
@@ -89,10 +90,11 @@ export const Header: React.FC = () => {
                         <li>
                             <a href="#que-hacemos" onClick={() => setIsMenuOpen(false)} style={{
                                 textDecoration: 'none',
-                                color: '#0F172A',
-                                fontWeight: 700,
-                                fontSize: isScrolled ? '1rem' : '0.9rem',
-                                opacity: 0.8
+                                color: '#F8FAFC',
+                                fontWeight: 600,
+                                fontSize: isScrolled ? '1rem' : '0.85rem',
+                                letterSpacing: '0.02em',
+                                opacity: 0.9
                             }}>
                                 Qué Hacemos
                             </a>
@@ -100,10 +102,11 @@ export const Header: React.FC = () => {
                         <li>
                             <a href="#about" onClick={() => setIsMenuOpen(false)} style={{
                                 textDecoration: 'none',
-                                color: '#0F172A',
-                                fontWeight: 700,
-                                fontSize: isScrolled ? '1rem' : '0.9rem',
-                                opacity: 0.8
+                                color: '#F8FAFC',
+                                fontWeight: 600,
+                                fontSize: isScrolled ? '1rem' : '0.85rem',
+                                letterSpacing: '0.02em',
+                                opacity: 0.9
                             }}>
                                 Nosotros
                             </a>
@@ -174,13 +177,13 @@ export const Header: React.FC = () => {
                     position: absolute;
                     top: calc(100% + 15px);
                     right: 0;
-                    width: 200px;
-                    background: white;
-                    border-radius: 20px;
+                    width: 220px;
+                    background: var(--bg-dark);
+                    border-radius: 12px;
                     padding: 1.5rem;
-                    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+                    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
                     display: block !important;
-                    border: 1px solid #F1F5F9;
+                    border: 1px solid rgba(0, 210, 255, 0.2);
                     pointer-events: auto;
                 }
                 
