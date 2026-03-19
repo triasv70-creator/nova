@@ -1,5 +1,5 @@
 import React from 'react';
-import brandLogo from '../assets/Logo_Nova_26.png';
+import brandLogo from '../assets/Recurso_1_3x.png';
 import { Instagram, Linkedin, Music2 } from 'lucide-react';
 
 export const Footer: React.FC = () => {
