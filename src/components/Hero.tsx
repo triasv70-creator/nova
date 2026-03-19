@@ -41,8 +41,8 @@ export const Hero: React.FC = () => {
             }} />
 
             <div style={{ position: 'relative', zIndex: 1, maxWidth: '1000px' }}>
-                <h1 style={{
-                    fontSize: 'clamp(3rem, 7vw, 5.5rem)',
+                <h1 className="hero-title" style={{
+                    fontSize: 'clamp(2rem, 8vw, 5.5rem)',
                     fontWeight: 800, // Using Bold as per manual
                     color: 'var(--color-text-light)',
                     lineHeight: 1.05,
@@ -51,12 +51,12 @@ export const Hero: React.FC = () => {
                     fontFamily: 'var(--font-brand)',
                     textShadow: '0 4px 12px rgba(0,0,0,0.2)'
                 }}>
-                    Ingeniería de <br />
-                    Resultados para <br />
-                    tu <span style={{
+                    <span className="line-break">Ingeniería de </span>
+                    <span className="line-break">Resultados para </span>
+                    <span style={{
                         color: '#4feef2',
                         textShadow: '0 0 200px rgba(79, 238, 242, 0.4)'
-                    }}>ecosistema digital.</span>
+                    }}>tu ecosistema digital.</span>
                 </h1>
 
                 <p style={{
@@ -102,7 +102,7 @@ export const Hero: React.FC = () => {
                             cursor: 'pointer',
                             backdropFilter: 'blur(4px)'
                         }}>
-                            Conócenos
+                            Ver casos de éxito
                         </button>
                     </a>
                 </div>
@@ -112,6 +112,22 @@ export const Hero: React.FC = () => {
                 /* Hero Text Shadow & Polish */
                 h1, p {
                    text-rendering: optimizeLegibility;
+                }
+                
+                @media (max-width: 768px) {
+                    .line-break::after {
+                        content: " ";
+                    }
+                    .hero-title {
+                        line-height: 1.2 !important;
+                    }
+                }
+                
+                @media (min-width: 769px) {
+                    .line-break::after {
+                        content: "\\A";
+                        white-space: pre;
+                    }
                 }
             `}</style>
         </section>

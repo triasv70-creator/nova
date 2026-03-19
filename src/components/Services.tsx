@@ -46,7 +46,7 @@ export const Services: React.FC = () => {
                         Nuestras Capacidades
                     </div>
                     <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'var(--bg-dark)', fontWeight: 800 }}>
-                        Soluciones Integrales de <span style={{ color: 'var(--color-brand-blue)' }}>Marketing Digital</span>
+                        Servicios diseñados para <span style={{ color: 'var(--color-brand-blue)' }}>crecer</span>, no solo para estar presentes en digital
                     </h2>
                 </div>
 
@@ -79,7 +79,7 @@ export const Services: React.FC = () => {
                     border: 1px solid rgba(14, 67, 231, 0.1);
                     border-radius: 12px;
                     padding: 2.5rem 1.25rem;
-                    height: 260px;
+                    height: auto;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -121,8 +121,8 @@ export const Services: React.FC = () => {
                 }
 
                 .description-container {
-                    max-height: 0;
-                    opacity: 0;
+                    max-height: none;
+                    opacity: 1;
                     overflow: hidden;
                     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                 }
@@ -138,18 +138,12 @@ export const Services: React.FC = () => {
                 .service-card-interactive:hover {
                     border-color: var(--color-brand-blue);
                     box-shadow: 0 20px 40px -10px rgba(14, 67, 231, 0.15);
-                    height: 300px;
                 }
 
                 .service-card-interactive:hover .icon-wrapper {
                     background: var(--color-brand-blue);
                     color: white;
                     transform: scale(0.9);
-                }
-
-                .service-card-interactive:hover .description-container {
-                    max-height: 120px;
-                    opacity: 1;
                 }
 
                 @media (max-width: 1200px) {

@@ -48,7 +48,7 @@ export const Header: React.FC = () => {
                 transition: 'all 0.3s ease'
             }}>
                 <a href="#" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }} className="hover-lift">
-                    <img src={brandLogo} alt="NOVA Marketing Lab" style={{
+                    <img src={brandLogo} alt="NOVA Marketing Lab" className="header-logo" style={{
                         height: isScrolled ? '60px' : '100px',
                         width: isScrolled ? '60px' : '100px',
                         objectFit: 'contain',
@@ -66,7 +66,7 @@ export const Header: React.FC = () => {
                 WebkitBackdropFilter: 'blur(12px)',
                 padding: isScrolled ? '0.5rem' : '0.6rem 1.8rem',
                 borderRadius: isScrolled ? '50%' : '100px',
-                border: '1px solid rgba(79, 238, 242, 0.2)', // Azul Menta border
+                border: isScrolled ? '1px solid #fafafa' : '1px solid rgba(79, 238, 242, 0.2)', // white border when scrolled/burger
                 boxShadow: '0 15px 35px rgba(0,0,0,0.3)',
                 display: 'flex',
                 alignItems: 'center',
@@ -135,7 +135,7 @@ export const Header: React.FC = () => {
                         border: 'none',
                         fontSize: '1.8rem',
                         cursor: 'pointer',
-                        color: 'var(--color-text-main)',
+                        color: '#fafafa',
                         padding: '0.2rem',
                         width: '100%',
                         height: '100%',
@@ -195,6 +195,13 @@ export const Header: React.FC = () => {
                 .nav-menu.open li {
                     width: 100%;
                     text-align: center;
+                }
+
+                @media (max-width: 768px) {
+                    .header-logo {
+                        height: ${isScrolled ? '40px' : '60px'} !important;
+                        width: ${isScrolled ? '40px' : '60px'} !important;
+                    }
                 }
             `}</style>
         </header>
