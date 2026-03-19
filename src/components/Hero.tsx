@@ -51,15 +51,12 @@ export const Hero: React.FC = () => {
                     fontFamily: 'var(--font-brand)',
                     textShadow: '0 4px 12px rgba(0,0,0,0.2)'
                 }}>
-                    Ingeniería de Resultados <br />
-                    <span style={{
-                        color: 'white',
-                        textShadow: '0 0 200px rgba(79, 238, 242, 0.4)'
-                    }}>para tu </span>
+                    Ingeniería de <br />
+                    Resultados para <br />
                     <span style={{
                         color: '#4feef2',
                         textShadow: '0 0 200px rgba(79, 238, 242, 0.4)'
-                    }}>Ecosistema Digital.</span>
+                    }}>tu ecosistema digital.</span>
                 </h1>
 
                 <p style={{
