@@ -67,7 +67,7 @@ export const Hero: React.FC = () => {
                     lineHeight: 1.6,
                     textShadow: '0 2px 4px rgba(0,0,0,0.1)'
                 }}>
-                    En <strong>NOVA Marketing Lab</strong>, fusionamos arquitectura tecnológica y creatividad estratégica para transformar marcas en ecosistemas de adquisición de clientes y resultados reales.
+                    En <strong>NOVA Marketing Lab</strong> no creemos en soluciones genéricas. Activamos infraestructuras de venta que procesan la demanda de forma autónoma, enfocándonos en lo que realmente importa: ROI medible y libertad operativa.
                 </p>
 
                 <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
