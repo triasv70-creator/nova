@@ -53,10 +53,10 @@ export const Hero: React.FC = () => {
                 }}>
                     Ingeniería de <br />
                     Resultados para <br />
-                    <span style={{
+                    tu <span style={{
                         color: '#4feef2',
                         textShadow: '0 0 200px rgba(79, 238, 242, 0.4)'
-                    }}>tu ecosistema digital.</span>
+                    }}>ecosistema digital.</span>
                 </h1>
 
                 <p style={{
