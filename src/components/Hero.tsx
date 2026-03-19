@@ -55,7 +55,11 @@ export const Hero: React.FC = () => {
                     <span style={{
                         color: 'white',
                         textShadow: '0 0 200px rgba(79, 238, 242, 0.4)'
-                    }}>para tu Ecosistema Digital.</span>
+                    }}>para tu </span>
+                    <span style={{
+                        color: '#4feef2',
+                        textShadow: '0 0 200px rgba(79, 238, 242, 0.4)'
+                    }}>Ecosistema Digital.</span>
                 </h1>
 
                 <p style={{
