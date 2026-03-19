@@ -85,7 +85,7 @@ export const Hero: React.FC = () => {
                             cursor: 'pointer',
                             boxShadow: '0 8px 16px rgba(14, 67, 231, 0.2)'
                         }}>
-                            Agendar Propuesta
+                            SOLICITAR DIAGNÓSTICO ESTRATÉGICO
                         </button>
                     </a>
 
