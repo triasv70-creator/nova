@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import brandLogo from '../assets/Recurso_1_3x.png';
+import brandLogo from '../assets/header_logo_final.png';
 
 export const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
