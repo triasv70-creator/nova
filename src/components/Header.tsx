@@ -49,8 +49,8 @@ export const Header: React.FC = () => {
             }}>
                 <a href="#" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }} className="hover-lift">
                     <img src={brandLogo} alt="NOVA Marketing Lab" style={{
-                        height: isScrolled ? '32px' : '45px',
-                        width: 'auto',
+                        height: isScrolled ? '60px' : '100px',
+                        width: isScrolled ? '60px' : '100px',
                         objectFit: 'contain',
                         filter: 'drop-shadow(0 0 4px rgba(79, 238, 242, 0.2))',
                         transition: 'all 0.3s ease'
