@@ -8,14 +8,25 @@ import { TargetAudience } from '../components/TargetAudience';
 import { Contact } from '../components/Contact';
 
 export const Home: React.FC = () => {
+    const [selectedService, setSelectedService] = React.useState<string>('');
+
+    const handleQuoteService = (service: string) => {
+        setSelectedService(service);
+        // Instant scroll to contact
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <>
             <Hero />
-            <Services />
+            <Services onQuoteService={handleQuoteService} />
             <BlueprintSection />
             <AboutUs />
             <TargetAudience />
-            <Contact />
+            <Contact initialService={selectedService} />
         </>
     );
 };

@@ -1,6 +1,10 @@
 
 import React from 'react';
-import { MonitorPlay, Target, Workflow, Users2, Globe } from 'lucide-react';
+import { MonitorPlay, Target, Workflow, Users2, Globe, Send } from 'lucide-react';
+
+interface ServicesProps {
+    onQuoteService?: (title: string) => void;
+}
 
 const services = [
     {
@@ -30,7 +34,7 @@ const services = [
     }
 ];
 
-export const Services: React.FC = () => {
+export const Services: React.FC<ServicesProps> = ({ onQuoteService }) => {
     return (
         <section id="services" style={{ padding: 'var(--spacing-section) 0', backgroundColor: 'var(--bg-secondary)' }}>
             <div className="container">
@@ -61,6 +65,16 @@ export const Services: React.FC = () => {
                                 <div className="description-container">
                                     <p className="service-description">{s.description}</p>
                                 </div>
+                                <button 
+                                    className="quote-btn"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        onQuoteService?.(s.title);
+                                    }}
+                                >
+                                    <Send size={14} />
+                                    COTIZAR
+                                </button>
                             </div>
                         </div>
                     ))}
@@ -132,6 +146,33 @@ export const Services: React.FC = () => {
                     color: #64748B;
                     line-height: 1.5;
                     margin-top: 1rem;
+                    margin-bottom: 1.5rem;
+                }
+
+                .quote-btn {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 0.5rem;
+                    width: 100%;
+                    padding: 0.75rem;
+                    background-color: transparent;
+                    color: var(--color-brand-blue);
+                    border: 2px solid var(--color-brand-blue);
+                    border-radius: 8px;
+                    font-size: 0.8rem;
+                    font-weight: 700;
+                    letter-spacing: 0.05em;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    margin-top: auto;
+                }
+
+                .quote-btn:hover {
+                    background-color: var(--color-brand-blue);
+                    color: white;
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(14, 67, 231, 0.2);
                 }
 
                 /* Hover States */

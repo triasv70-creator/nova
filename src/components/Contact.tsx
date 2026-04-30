@@ -1,7 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-export const Contact: React.FC = () => {
+interface ContactProps {
+    initialService?: string;
+}
+
+export const Contact: React.FC<ContactProps> = ({ initialService }) => {
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+    const [service, setService] = useState('');
+
+    useEffect(() => {
+        if (initialService) {
+            setService(initialService);
+        }
+    }, [initialService]);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -108,6 +119,29 @@ export const Contact: React.FC = () => {
                             borderRadius: '2px',
                             fontFamily: 'var(--font-body)'
                         }} />
+                        
+                        <select 
+                            name="service" 
+                            value={service} 
+                            onChange={(e) => setService(e.target.value)}
+                            required 
+                            style={{
+                                padding: '1rem',
+                                border: '1px solid #e5e7eb',
+                                borderRadius: '2px',
+                                fontFamily: 'var(--font-body)',
+                                backgroundColor: 'white',
+                                color: service ? '#0F172A' : '#9ca3af'
+                            }}
+                        >
+                            <option value="" disabled>Servicio de Interés</option>
+                            <option value="Contenido Digital">Contenido Digital</option>
+                            <option value="Publicidad Digital">Publicidad Digital</option>
+                            <option value="Leads & Gestión">Leads & Gestión</option>
+                            <option value="Community Management">Community Management</option>
+                            <option value="Desarrollo Web">Desarrollo Web</option>
+                            <option value="Otro / Consultoría General">Otro / Consultoría General</option>
+                        </select>
                         <textarea name="message" placeholder="Cuéntanos brevemente tus objetivos..." rows={5} required style={{
                             padding: '1rem',
                             border: '1px solid #e5e7eb',
