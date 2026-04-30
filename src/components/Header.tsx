@@ -121,7 +121,7 @@ export const Header: React.FC = () => {
                                 fontWeight: 800,
                                 fontSize: '0.85rem'
                             }}>
-                                Agendar Asesoría
+                                Cotizar servicio
                             </a>
                         </li>
                     </ul>
