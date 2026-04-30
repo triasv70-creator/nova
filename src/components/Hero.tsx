@@ -51,12 +51,10 @@ export const Hero: React.FC = () => {
                     fontFamily: 'var(--font-brand)',
                     textShadow: '0 4px 12px rgba(0,0,0,0.2)'
                 }}>
-                    <span className="line-break">Ingeniería de </span>
-                    <span className="line-break">Resultados para </span>
-                    <span style={{
+                    Arquitectura digital para <span style={{
                         color: '#4feef2',
                         textShadow: '0 0 200px rgba(79, 238, 242, 0.4)'
-                    }}>tu ecosistema digital.</span>
+                    }}>escalar sin fricción.</span>
                 </h1>
 
                 <p style={{
@@ -68,7 +66,7 @@ export const Hero: React.FC = () => {
                     lineHeight: 1.6,
                     textShadow: '0 2px 4px rgba(0,0,0,0.1)'
                 }}>
-                    En <strong>NOVA Marketing Lab</strong> activamos infraestructuras de venta que procesan la demanda de forma autónoma, enfocándonos en lo que realmente importa: ROI medible y libertad operativa.
+                    En <strong>NOVA Marketing Lab</strong> desmantelamos los sistemas obsoletos que frenan tu crecimiento. Diseñamos infraestructuras de venta inteligentes que procesan la demanda con autonomía, devolviéndote el control y la libertad operativa.
                 </p>
 
                 <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -85,7 +83,7 @@ export const Hero: React.FC = () => {
                             cursor: 'pointer',
                             boxShadow: '0 8px 16px rgba(14, 67, 231, 0.2)'
                         }}>
-                            SOLICITAR DIAGNÓSTICO ESTRATÉGICO
+                            Evolucionar mi Ecosistema
                         </button>
                     </a>
 
@@ -102,7 +100,7 @@ export const Hero: React.FC = () => {
                             cursor: 'pointer',
                             backdropFilter: 'blur(4px)'
                         }}>
-                            Ver casos de éxito
+                            Cotizar servicios
                         </button>
                     </a>
                 </div>
